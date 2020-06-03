@@ -28,19 +28,23 @@
                 </div>
             </div>
         </section>
-        <section class="row controls">
-            <div class="small-12 columns">
-                <button id="start-game">START NEW GAME</button>
-            </div>
-        </section>
-        <section class="row controls">
-            <div class="small-12 columns">
-                <button id="attack">ATTACK</button>
-                <button id="special-attack">SPECIAL ATTACK</button>
-                <button id="heal">HEAL</button>
-                <button id="give-up">GIVE UP</button>
-            </div>
-        </section>
+        <template v-if="!gameIsRunning">
+            <section class="row controls">
+                <div class="small-12 columns">
+                    <button id="start-game" @click="startGame">START NEW GAME</button>
+                </div>
+            </section>
+        </template>
+        <template v-else>
+            <section class="row controls">
+                <div class="small-12 columns">
+                    <button id="attack">ATTACK</button>
+                    <button id="special-attack">SPECIAL ATTACK</button>
+                    <button id="heal">HEAL</button>
+                    <button id="give-up">GIVE UP</button>
+                </div>
+            </section>
+        </template>
         <section class="row log">
             <div class="small-12 columns">
                 <ul>
